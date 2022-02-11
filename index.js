@@ -277,7 +277,7 @@ function removeArtist(array,index) {
   delete array[index]; 
   return array.length - 1; 
 }
-removeArtist(artists,0);
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -301,7 +301,8 @@ function addArtist(array) {
   years: "1989 - 2022",
   genre: "Web Design", 
   nationality: "Dominican",
-  bio: "Live is like a box of chocoloates,Home is where you make it"}
+  bio: "Live is like a box of chocoloates,Home is where you make it"
+}
   array.push(newInfo);
   return array;
 }
@@ -319,11 +320,12 @@ console.log("LOOK AT M!", artists[1].paintings)
 
 function lotsOfArt(artists) {
   let over100 = [];
-  for (let i = 1;i < artists.length;i++){ 
-     if (artists[i].paintings > 100){
-      over100.push("Name:", artists[i].name)
+  for (let i = 0;i < artists.length;i++){ 
+    let paintingAmmount = artists[i].paintings;
+    if (paintingAmmount > 100){
+     over100.push(artists[i].name);
     }
-  }return over100;  
+  }return over100;
 }
 console.log(lotsOfArt(artists));
 
@@ -338,14 +340,13 @@ For example artistInfo(artists, 'Frida Kahlo') will return:
 */
 function artistInfo(array,name){
   let myBio = [];
-  for(let i = 1;i < array.length;i++){
-    if (array[i]["name"] === name){
-     myBio = array[i]["bio"];
-      return myBio;
+  for(let i = 0;i < array.length;i++){
+    if (array[i].name === name){
+     myBio.push(array[i]["bio"]);  
+    return myBio;
     }
   }
 }
-artistInfo(artists,'Frida Kahlo');
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 9: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use artistByCountry to do the following: 
@@ -356,11 +357,16 @@ Use artistByCountry to do the following:
 For example artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 'Pablo Picasso', 'Francisco Goya']
 */
 
-function artistByCountry(/*Your Code Here*/){
-  /*Your Code Here*/
+function artistByCountry(array,nationality){
+  let localArtists = [];
+  for (let i = 0;i < array.length; i++){       
+    if (array[i]["nationality"] === nationality){
+     localArtists.push(array[i]["name"]);   
+    }
+  }return localArtists;  
 }
 
-
+artistByCountry(artists, 'Spanish');
 
 /* ***** END OF TASKS ***** */
 
