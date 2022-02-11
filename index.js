@@ -274,9 +274,11 @@ Use removeArtist to do the following:
 For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
 function removeArtist(array,index) {
-  /*Your Code Here*/
+  delete array[index];
+  console.log(array);
+  return array.length - 1; 
 }
-
+console.log(removeArtist(artists,0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -294,8 +296,15 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+function addArtist(array) {
+ let newInfo = {id: 20,
+  name: "Alex Sanchez", 
+  years: "1989 - 2022",
+  genre: "Web Design", 
+  nationality: "Dominican",
+  bio: "Live is like a box of chocoloates,Home is where you make it"}
+  array.push(newInfo);
+  return array;
 }
 
 
